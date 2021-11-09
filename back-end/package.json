@@ -1,0 +1,35 @@
+{
+  "name": "catalogo",
+  "version": "1.0.0",
+  "description": "api to save film's data ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
+    "dev": "npx ts-node-dev src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntonioWeb-dev/Lista-de-filmes.git"
+  },
+  "author": "Antonio Edilberto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AntonioWeb-dev/Lista-de-filmes/issues"
+  },
+  "homepage": "https://github.com/AntonioWeb-dev/Lista-de-filmes#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mysql2": "^2.3.3-rc.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.38"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.11.6",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.4.4"
+  }
+}

@@ -1,0 +1,12 @@
+version: "3.1"
+
+services:
+  db_mysql:
+    image: mysql:8.0
+    container_name: mysql_c
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+    ports:
+      - ${DB_PORT}:3306
