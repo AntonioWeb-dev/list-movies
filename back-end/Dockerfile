@@ -4,10 +4,8 @@ WORKDIR /usr/src/app
 
 COPY ./package*.json ./
 
-ENTRYPOINT ["/bin/bash", "./entrypoint.sh"] 
+RUN npm install
 
 COPY . .
 
 EXPOSE 3072
-
-CMD [ "index.js" ]

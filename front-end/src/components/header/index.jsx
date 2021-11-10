@@ -25,18 +25,21 @@ export function Header({ setMovies, setIsLoading, catalog = false }) {
                 'x-rapidapi-key': `${process.env.REACT_APP_API_KEY}`
             }
         });
-        let movies = [];
-        response.data.results.forEach((movie) => {
-            if (movie.titleType && movie?.image?.url) {
-                const movieEdited = {
-                    id: movie.id.split('/')[2],
-                    image: movie.image?.url,
-                    title: movie.title
+        if (response.status === 200 && response.data?.results) {
+
+            let movies = [];
+            response.data.results.forEach((movie) => {
+                if (movie.titleType && movie.image?.url) {
+                    const movieEdited = {
+                        id: movie.id.split('/')[2],
+                        image: movie.image?.url,
+                        title: movie.title
+                    }
+                    movies.push(movieEdited);
                 }
-                movies.push(movieEdited);
-            }
-        })
-        setMovies(movies);
+            })
+            setMovies(movies);
+        }
     }
 
     const handleSubmit = async (event) => {

@@ -12,7 +12,7 @@ services:
       - ${DB_PORT}:3306
 
   react-app:
-    image: react-app
+    build: front-end/
     stdin_open: true
     ports:
       - "3071:3000"
@@ -20,7 +20,8 @@ services:
       REACT_APP_API_KEY: ${REACT_APP_API_KEY}
 
   api-server:
-    image: api-server
+    build: back-end/
+    command: bash -c "npm run typeorm migration:run && npm run dev"
     ports:
       - "3072:3072"
     depends_on:
