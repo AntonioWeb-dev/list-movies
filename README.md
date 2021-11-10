@@ -7,8 +7,7 @@ How to run:
 ```
   $ git clone https://github.com/AntonioWeb-dev/list-movies
   $ cd list-movies
-  $ make build
-  $ docker-compose up
+  $ docker-compose up --build
 ```
 
 The React app is running on http://localhost:3071
