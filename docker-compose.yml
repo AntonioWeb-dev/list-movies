@@ -10,3 +10,24 @@ services:
       MYSQL_DATABASE: ${DB_DATABASE}
     ports:
       - ${DB_PORT}:3306
+
+  react-app:
+    image: react-app
+    stdin_open: true
+    ports:
+      - "3071:3000"
+    environment:
+      REACT_APP_API_KEY: ${REACT_APP_API_KEY}
+
+  api-server:
+    image: api-server
+    ports:
+      - "3072:3072"
+    depends_on:
+      - db_mysql
+    environment:
+      - DB_PORT=${DB_PORT}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_DATABASE=${DB_DATABASE}
+      - DB_HOST=${DB_HOST}

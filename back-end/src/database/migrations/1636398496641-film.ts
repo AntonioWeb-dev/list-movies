@@ -20,7 +20,7 @@ export class film1636398496641 implements MigrationInterface {
           },
           {
             name: 'description',
-            type: 'varchar',
+            type: 'text',
             isNullable: false,
           },
           {
@@ -34,7 +34,7 @@ export class film1636398496641 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('films');
+    await queryRunner.dropTable('movies');
   }
 
 }

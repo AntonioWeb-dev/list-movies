@@ -10,6 +10,7 @@ export default function LoginPage() {
 
     const history = useHistory();
 
+    //handleSubmit - send a request to do login
     const handleSubmit = async (event) => {
         event.preventDefault();
         let err = {}

@@ -26,11 +26,6 @@ export class MovieController {
             rel: "self",
             method: "GET",
             href: `http://localhost:3001/movies/${id}`
-          },
-          {
-            rel: "delete",
-            method: "DELETE",
-            href: `http://localhost:3001/movies/${id}`
           }
         ]
         return { image, title, id, links };

@@ -26,6 +26,16 @@ export const Container = styled.div`
       font-family: sans-serif;
     }
   }
+
+  @media (max-width: 1160px) {
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 100%;
+
+    .movie-banner {
+      display: none;
+    }
+  }
 `;
 
 export const RightSide = styled.div`
@@ -40,6 +50,7 @@ export const Form = styled.form`
   width: 65%;
   height: 35%;
   padding-left: 20px;
+
   h1 {
     font-size: 40px;
     color: #c94447;
@@ -95,5 +106,19 @@ export const Form = styled.form`
     color: #e3db14;
     font-family: sans-serif;
     font-size: 15px;
+  }
+  @media (max-width: 760px) {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0px;
+    .main-form {
+      align-items: center;
+      justify-content: center;
+    }
+    .input input {
+      width: 70%;
+      font-size: 20px;
+    }
   }
 `;

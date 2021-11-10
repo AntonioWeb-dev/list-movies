@@ -1,12 +1,13 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useRouteMatch, Route, Link, BrowserRouter } from 'react-router-dom';
+import ClipLoader from "react-spinners/ClipLoader";
 import { MovieModal } from '../../components/movieModal';
 import { Header } from '../../components/header';
 import { MovieCard } from '../../components/movieCard';
 import { MoviesContainter, Container } from '../../config/GlobalStyle';
-import ClipLoader from "react-spinners/ClipLoader";
+import { Axios } from '../../service/Axios';
 
-export default function MoviePage() {
+export function MyCatalog() {
     const { path, url } = useRouteMatch();
 
     const [movies, setMovies] = useState([]);
@@ -17,10 +18,21 @@ export default function MoviePage() {
         setIsLoading(value);
     }, []);
 
+    //getMovieFromCatalog - send a request to get movies that was saved in database
+    const getMovieFromCatalog = async () => {
+        const response = await Axios.get('/movies');
+        setMovies(response.data);
+    }
+
+    //useEffect - call the getMovieFromCatalog function 
+    useEffect(() => {
+        getMovieFromCatalog();
+    }, []);
+
     // there is a BrowserRouter because the modal is other route in that way the code is less dependent 
     return (
         <Container>
-            <Header setMovies={setMovies} setIsLoading={handleLoading} />
+            <Header setMovies={setMovies} setIsLoading={handleLoading} catalog />
             {isLoading
                 ?
                 <div className="no-movies">
@@ -32,7 +44,7 @@ export default function MoviePage() {
                     <BrowserRouter>
                         <MoviesContainter>
                             {movies.map((movie, index) => (
-                                <Link to={`${url}/${movie.id}`}>
+                                <Link className="movie-link" to={`${url}/${movie.id}`}>
                                     <MovieCard
                                         key={index}
                                         title={movie.title}
@@ -48,7 +60,7 @@ export default function MoviePage() {
                     </BrowserRouter>
                     :
                     <div className="no-movies">
-                        <h1>Nenhum filme pesquisado</h1>
+                        <h1>Nenhum filme catalogado</h1>
                     </div>
             }
 

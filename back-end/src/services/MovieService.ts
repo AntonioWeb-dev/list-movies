@@ -4,11 +4,6 @@ import { FilmRepository } from '../repositories/FilmRepository';
 import { IMovieService } from './movieService.interface';
 
 export class MovieService implements IMovieService {
-  filmRepository: FilmRepository;
-  constructor() {
-  }
-
-
   async find() {
     try {
       const filmRepository = getCustomRepository(FilmRepository)

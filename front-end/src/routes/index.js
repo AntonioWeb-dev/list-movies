@@ -1,15 +1,15 @@
 import { Switch, Route } from "react-router-dom";
+import { MyCatalog } from "../pages/catalogo";
 
-import { HandleRoute } from "./handleRoute";
 import LoginPage from "../pages/login";
 import MoviePage from "../pages/movies";
 
 function RoutesComponent() {
   return (
     <Switch>
-      {/* <HandleRoute exact path="/login" component={LoginPage} /> */}
-      <Route exact path="/login" component={LoginPage} />
+      <Route exact path="/" component={LoginPage} />
       <Route exact path="/movies" component={MoviePage} />
+      <Route exact path="/meucatalogo" component={MyCatalog} />
     </Switch>
   );
 }

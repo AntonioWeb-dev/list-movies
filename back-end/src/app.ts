@@ -5,8 +5,10 @@ import cors from 'cors';
 import loginRoutes from './routes/loginRoutes';
 import filmRoutes from './routes/filmRoutes';
 
+// App - set all configs bellow souch routes, middlewares, errorsHandlers, cors, helmet and etc.
 class App {
   app: express.Application;
+
   constructor() {
     this.app = express()
     this.middlewares();
