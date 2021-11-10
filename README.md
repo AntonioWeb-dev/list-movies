@@ -9,5 +9,6 @@ How to run:
   $ cd list-movies
   $ docker-compose up --build
 ```
+In case of migration error in the firs build "Ctrl+C" and "docker-compose up --build" again
 
 The React app is running on http://localhost:3071
